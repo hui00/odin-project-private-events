@@ -19,4 +19,14 @@
 #
 class Event < ApplicationRecord
   belongs_to :creator, class_name: "User"
+  after_update_commit do
+    broadcast_replace_to(
+      "inbox_list",
+      target: self,
+      partial: "users/listeventforuser",
+      locals: {
+        event: self,
+      },
+    )
+  end
 end
