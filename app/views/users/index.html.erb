@@ -1,0 +1,10 @@
+<div>
+  <h1 class="font-bold text-4xl">Users#index</h1>
+  <p>Find me in app/views/users/index.html.erb</p>
+<% @users.each do |user| %>
+  <div class="flex ">
+  <p class="mr-4"><%= user.email %></p>
+  <%= link_to "Show", user_path(user.id)%>
+  </div>
+<% end %>
+</div>
