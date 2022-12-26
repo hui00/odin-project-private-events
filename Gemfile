@@ -82,6 +82,7 @@ group :development, :test do
   gem "rails_live_reload"
   gem "rubocop-rails", require: false
   gem "faker"
+  gem "erb_lint", require: false
 end
 gem "dotenv-rails"
 gem "devise"
