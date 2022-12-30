@@ -19,6 +19,16 @@
 #
 class Event < ApplicationRecord
   belongs_to :creator, class_name: "User"
+  validates :name, presence: true, length: { minimum: 3, maximum: 50 }
+  validates :date, presence: true 
+  validate :date_must_be_in_the_future
+
+  def date_must_be_in_the_future
+    if date.present? && date < Date.today
+      errors.add(:date, "must be in the future")
+    end
+  end
+
   after_update_commit do
     broadcast_replace_to(
       "inbox_list",
