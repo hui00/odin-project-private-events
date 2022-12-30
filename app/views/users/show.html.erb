@@ -1,18 +1,36 @@
-  <%= turbo_stream_from "inbox_list" %>
-<div>
-  <div class="mb-8">
-    <h1 class="font-bold text-4xl">Users#show</h1>
-    <p>Find me in app/views/users/index.html.erb</p>
-  </div>
+<%= turbo_stream_from "inbox_list" %>
   <div>
-    <p class="text-xl mb-2">User:  <%= @user.email %> </p>
-    <p class="text-xl mb-2">ID:  <%= @user.id %> </p>
-  <h2 class="font-semibold text-2xl mb-2"> Events: </h2>
-  </div>
+    <div class="mb-8">
+      <h1 class="font-bold text-4xl">Users#show</h1>
+      <p>Find me in app/views/users/index.html.erb</p>
+    </div>
+    <div>
+      <p class="text-xl mb-2">User: <%= @user.email %>
+      </p>
+      <p class="text-xl mb-2">ID: <%= @user.id %>
+      </p>
+      <div>
+        <h2 class="my-4 text-3xl">Create a new Event:</h2>
+        <%= simple_form_for(@event, builder: SimpleForm::Tailwind::FormBuilder) do |f| %>
+          <%= f.error_notification %>
+            <%= f.input :name, autocomplete: "name" , placeholder: "type event" , label: "Name of the Event" %>
+              <%= f.input :date, autocomplete: "email" , label: "Selete your Date" , html5: true %>
+                <div>
+                  <%= f.button :button, "Get started" ,
+                    class: "w-full flex justify-center my-2 py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    %>
+                </div>
+                <% end %>
 
-  <div id="test">
-    <% @user.events.each do |event| %>
-      <%= render partial: "listeventforuser", locals: { event: event}  %>
-    <% end %>
+
+        </div>
+      </div>
+    <div>
+      <h3 class="font-semibold text-2xl mb-2"> All my Events: </h2>
+        <div id="test">
+          <% @user.events.each do |event| %>
+            <%= render partial: "listeventforuser" , locals: { event:,} %>
+              <% end %>
+        </div>
+    </div>
   </div>
-</div>
