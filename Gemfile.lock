@@ -130,6 +130,8 @@ GEM
       temple (>= 0.8.2)
       thor
       tilt
+    heroicon (1.0.0)
+      rails (>= 5.2)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.1.5)
@@ -262,6 +264,12 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    simple_form (5.1.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
+    simple_form_tailwind_css (1.0.0)
+      heroicon
+      simple_form
     smart_properties (1.17.0)
     solargraph (0.48.0)
       backport (~> 1.2)
@@ -357,6 +365,8 @@ DEPENDENCIES
   redis (~> 4.0)
   rubocop-rails
   selenium-webdriver
+  simple_form
+  simple_form_tailwind_css
   solargraph
   solargraph-rails
   sprockets-rails
