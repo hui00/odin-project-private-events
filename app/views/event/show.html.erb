@@ -1,3 +1,23 @@
+<% if @event.errors.any? %>
+  <div class="alert alert-danger">
+    <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  
+  </div>
+<% end %>
+
+
+<% flash.each do |name, msg| %>
+    <div class="text-red-500">
+      <%= msg %>
+    </div>
+  <% end %>
+
+
+
 <div class="flex justify-center items-center h-full">
   <div class="w-full max-w-xs">
     <div class="text-center text-4xl font-bold text-gray-800 mb-4">
@@ -9,5 +29,11 @@
 
     <%= link_to "<- back", url_for(:back), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
   </div>
-
+<div>
+  <% flash.each do |name, msg| %>
+      <div class="text-green-500">
+        <%= msg %>
+      </div>
+    <% end %>
+</div>
 </div>

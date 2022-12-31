@@ -355,6 +355,7 @@ DEPENDENCIES
   dotenv-rails
   erb_lint
   faker
+  heroicon
   importmap-rails
   jbuilder
   pg (~> 1.1)
