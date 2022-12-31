@@ -29,7 +29,7 @@
     <div>
       <h3 class="font-semibold text-2xl mb-2"> All my Events: </h2>
         <div id="test">
-          <% @user.events.each do |event| %>
+          <% @user.events.reverse_each do |event| %>
             <%= render partial: "listeventforuser" , locals: { event:,} %>
               <% end %>
         </div>
