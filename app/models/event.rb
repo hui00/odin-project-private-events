@@ -19,8 +19,8 @@
 #
 class Event < ApplicationRecord
   belongs_to :creator, class_name: "User"
-  validates :name, presence: true, length: { minimum: 3, maximum: 50 }
-  validates :date, presence: true 
+  validates :name, presence: true, length: {minimum: 3, maximum: 50}
+  validates :date, presence: true
   validate :date_must_be_in_the_future
 
   def date_must_be_in_the_future
@@ -35,8 +35,8 @@ class Event < ApplicationRecord
       target: self,
       partial: "users/listeventforuser",
       locals: {
-        event: self,
-      },
+        event: self
+      }
     )
   end
 end
